@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://xml.netbeans.org/schema/Flights"
+    xmlns:tns="http://xml.netbeans.org/schema/Flights"
+    elementFormDefault="qualified">
+
+    <xsd:complexType name="FlightType">
+        <xsd:sequence>
+            <xsd:element name="ID" type="xsd:string"/>
+            <xsd:element name="From" type="xsd:string"/>
+            <xsd:element name="To" type="xsd:string"/>
+            <xsd:element name="Airline" type="xsd:string"/>
+            <xsd:element name="Seats" type="xsd:int"/>
+            <xsd:element name="Connections" type="xsd:int"/>
+            <xsd:element name="Price" type="tns:Fare"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+     <xsd:complexType name="Fare">
+        <xsd:sequence>
+            <xsd:element name="Currency" type="xsd:string"/>
+            <xsd:element name="Value" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+
+    <xsd:element name="All_Flights">
+        <xsd:complexType>
+            <xsd:sequence >
+                <xsd:element name="Flights_collection" type="tns:FlightType" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
